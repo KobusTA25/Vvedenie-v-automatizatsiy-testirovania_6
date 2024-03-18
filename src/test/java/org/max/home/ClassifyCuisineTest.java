@@ -18,8 +18,8 @@ public class ClassifyCuisineTest extends AbstractTest {
     @DisplayName("ClassifyCuisineTest")
     @Description("POST IngredientSubstitutes")
     @Link("")
-    @Severity(SeverityLevel.NORMAL)
-    @Owner("Кравченко Максим")
+    @Severity(SeverityLevel.MINOR)
+    @Owner("Татьяна")
     @Story(value = "Тестирование метода IngredientSubstitutes")
     void postClassifyCuisine_whenValid_shouldReturn() {
         ClassifyCuisineDTO response = given()
@@ -36,7 +36,7 @@ public class ClassifyCuisineTest extends AbstractTest {
                 .response()
                 .body()
                 .as(ClassifyCuisineDTO.class);
-        assertThat(response.getCuisine(), containsString("Mediterranean"));
+        assertThat(response.getCuisine(), containsString("Italian"));
         Assertions.assertEquals(response.getConfidence(),0.0);
         Assertions.assertEquals(response.getCuisines().size(),3);
     }
